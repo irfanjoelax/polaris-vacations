@@ -32,8 +32,8 @@ class BookNowController extends Controller
 
         Booking::create($data);
 
-        // Mail::to('iskandardinata081205@gmail.com')->send(new BookingMail($data));
-        Mail::to('irfanthejoelax@gmail.com')->send(new BookingMail($data));
+        Mail::to('iskandardinata081205@gmail.com')->send(new BookingMail($data));
+        // Mail::to('irfanthejoelax@gmail.com')->send(new BookingMail($data));
 
         Alert::success('Success', 'Booking has been Sent and Processing');
 
