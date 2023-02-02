@@ -8,29 +8,30 @@
             <div class="col-md-8 col-12 mb-3">
                 <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-program-tab" data-toggle="pill"
-                            data-target="#pills-program" type="button" role="tab" aria-controls="pills-program"
-                            aria-selected="true">
+                        <button style="background-color: #022461" class="nav-link text-white  active" id="pills-program-tab"
+                            data-toggle="pill" data-target="#pills-program" type="button" role="tab"
+                            aria-controls="pills-program" aria-selected="true">
                             Program
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-include-exclude-tab" data-toggle="pill"
-                            data-target="#pills-include-exclude" type="button" role="tab"
-                            aria-controls="pills-include-exclude" aria-selected="false">
+                        <button style="background-color: #022461" class="nav-link text-white "
+                            id="pills-include-exclude-tab" data-toggle="pill" data-target="#pills-include-exclude"
+                            type="button" role="tab" aria-controls="pills-include-exclude" aria-selected="false">
                             Include & Exclude
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-term-condition-tab" data-toggle="pill"
-                            data-target="#pills-term-condition" type="button" role="tab"
+                        <button style="background-color: #022461" class="nav-link text-white " id="pills-term-condition-tab"
+                            data-toggle="pill" data-target="#pills-term-condition" type="button" role="tab"
                             aria-controls="pills-term-condition" aria-selected="false">
                             Term & Conditions
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-harga-tab" data-toggle="pill" data-target="#pills-harga"
-                            type="button" role="tab" aria-controls="pills-harga" aria-selected="false">
+                        <button style="background-color: #022461" class="nav-link text-white " id="pills-harga-tab"
+                            data-toggle="pill" data-target="#pills-harga" type="button" role="tab"
+                            aria-controls="pills-harga" aria-selected="false">
                             Harga
                         </button>
                     </li>
@@ -55,7 +56,7 @@
             </div>
             <div class="col-md-4 col-12 mb-3">
                 <div class="card p-3">
-                    <h3 class="mb-4">Contact for Detail</h3>
+                    <h3 class="mb-4 text-primary">Contact for Detail</h3>
                     <form action="{{ url('book-now/' . $paket->slug) }}" method="POST">
                         @csrf
                         <input type="hidden" name="paket_id" value="{{ $paket->id }}">
@@ -91,7 +92,8 @@
                         <div class="form-group">
                             <textarea placeholder="Message" name="message" class="form-control" rows="3" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        <button type="submit" class="btn btn-block text-white"
+                            style="background-color: #022461">Submit</button>
                     </form>
                 </div>
             </div>

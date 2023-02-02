@@ -131,7 +131,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/+62819809390" target="_blank"
+    <a href="https://wa.me/+6285216271456" target="_blank"
         class="btn btn-lg btn-success rounded-circle shadow position-fixed" style="bottom: 50px; right: 15px">
         <i class="fa fa-whatsapp"></i>
     </a>

@@ -1,14 +1,45 @@
 @extends('layouts.template')
 
+@section('extra-style')
+    <style>
+        hr {
+            height: 5px;
+            background-color: #022461;
+            border: none;
+        }
+    </style>
+@endsection
+
 @section('content')
-    <img src="{{ asset('storage/' . $category->image_header) }}" loading="lazy" class="img-fluid" width="100%">
+    @if (Storage::mimeType($category->image_header) == 'video/mp4')
+        <video width="100%" height="240" controls class="img-fluid">
+            <source src="{{ asset('storage/' . $category->image_header) }}" type="video/mp4"> Your browser does not support
+            the video tag.
+        </video>
+    @endif
+
+    @if (in_array(Storage::mimeType($category->image_header), ['image/jpg', 'image/jpeg', 'image/png']))
+        <img src="{{ asset('storage/' . $category->image_header) }}" loading="lazy" class="img-fluid" width="100%">
+    @endif
 
     <div class="popular_destination_area">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="section_title text-center mb_70">
-                        <h3 class="text-primary">Special Offer</h3>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-4">
+                                <hr>
+                            </div>
+                            <div class="col-4">
+                                <h3 class="text-primary m-0">
+                                    Best of {{ Str::title($category->name) }}
+                                </h3>
+                            </div>
+                            <div class="col-4">
+                                <hr>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

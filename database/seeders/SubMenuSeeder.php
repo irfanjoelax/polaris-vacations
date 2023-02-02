@@ -16,7 +16,7 @@ class SubMenuSeeder extends Seeder
      */
     public function run()
     {
-        $no = 1;
+        $noDestinations = 1;
         $menuDestinations = [
             'Turkiye',
             'Middle East',
@@ -29,10 +29,11 @@ class SubMenuSeeder extends Seeder
                 'menu_id' => 1,
                 'name'    => $item,
                 'slug'    => Str::slug($item),
-                'order'   => $no++
+                'order'   => $noDestinations++
             ]);
         }
 
+        $noInterest = 1;
         $menuInterest = [
             'Cycling',
             'Honeymoon',
@@ -44,7 +45,7 @@ class SubMenuSeeder extends Seeder
                 'menu_id' => 3,
                 'name'    => $item,
                 'slug'    => Str::slug($item),
-                'order'   => $no++
+                'order'   => $noInterest++
             ]);
         }
     }

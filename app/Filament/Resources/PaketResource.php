@@ -68,28 +68,18 @@ class PaketResource extends Resource
                 Forms\Components\FileUpload::make('image_header')
                     ->required(),
 
-                Forms\Components\RichEditor::make('program')
-                    ->disableToolbarButtons([
-                        'attachFiles',
-                        'codeBlock',
-                    ])
+                TinyEditor::make('program')
+                    ->fileAttachmentsDisk('public')
                     ->columnSpan('full')
                     ->required(),
-                Forms\Components\RichEditor::make('include_exclude')
-                    ->disableToolbarButtons([
-                        'attachFiles',
-                        'codeBlock',
-                    ])
+                TinyEditor::make('include_exclude')
+                    ->fileAttachmentsDisk('public')
                     ->columnSpan('full')
                     ->required(),
-                Forms\Components\RichEditor::make('term_conditions')
-                    ->disableToolbarButtons([
-                        'attachFiles',
-                        'codeBlock',
-                    ])
+                TinyEditor::make('term_conditions')
+                    ->fileAttachmentsDisk('public')
                     ->columnSpan('full')
                     ->required(),
-
                 TinyEditor::make('harga')
                     ->fileAttachmentsDisk('public')
                     ->columnSpan('full')
@@ -110,6 +100,7 @@ class PaketResource extends Resource
                     ->sortable(),
                 Tables\Columns\IconColumn::make('special_offer')->boolean()
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])

@@ -32,7 +32,24 @@ class BookingResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')
+                    ->required(),
+                Forms\Components\TextInput::make('email')
+                    ->required(),
+                Forms\Components\TextInput::make('phone')
+                    ->required(),
+                Forms\Components\Select::make('type')
+                    ->options([
+                        'personal'     => 'Personal',
+                        'travel_agent' => 'Travel Agent',
+                    ]),
+                Forms\Components\TextInput::make('name_travel')
+                    ->required(),
+                Forms\Components\Select::make('paket_id')
+                    ->relationship('paket', 'title'),
+                Forms\Components\Textarea::make('message')
+                    ->columnSpanFull()
+                    ->required(),
             ]);
     }
 
@@ -55,15 +72,17 @@ class BookingResource extends Resource
                         'success' => 'personal',
                         'warning' => 'travel_agent',
                     ]),
-                Tables\Columns\TextColumn::make('name_travel'),
-                Tables\Columns\TextColumn::make('paket.title'),
-                Tables\Columns\TextColumn::make('message'),
+                // Tables\Columns\TextColumn::make('name_travel'),
+                // Tables\Columns\TextColumn::make('paket.title'),
+                // Tables\Columns\TextColumn::make('message'),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])
             ->actions([
                 // Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
@@ -84,6 +103,7 @@ class BookingResource extends Resource
             'index' => Pages\ListBookings::route('/'),
             'create' => Pages\CreateBooking::route('/create'),
             'edit' => Pages\EditBooking::route('/{record}/edit'),
+            'view' => Pages\ViewBooking::route('/{record}'),
         ];
     }
 }
